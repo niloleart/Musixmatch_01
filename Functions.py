@@ -31,7 +31,24 @@ def filtra_pais(pais):
                                 'country': pais,
                                 'f_has_lyrics': 1
                             })
-    response_data = response.json();
+    response_data = response.json()
+    message = response_data.get("message")
+    body = message.get("body")
+    tracklists = body.get('track_list')
+    return tracklists
+
+
+def filtra_genere(genere):
+    response = requests.get("https://api.musixmatch.com/ws/1.1/track.search",
+                            params={
+                                'apikey': api_key,
+                                'page_size': 2,
+                                'page': 1,
+                                's_track_rating': 'desc',
+                                'f_has_lyrics': 1,
+                                'f_music_genre_id': genere
+                            })
+    response_data = response.json()
     message = response_data.get("message")
     body = message.get("body")
     tracklists = body.get('track_list')

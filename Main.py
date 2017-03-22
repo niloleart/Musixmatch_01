@@ -24,7 +24,14 @@ while choice != 'q':
         Functions.print_lletres(lletres)
 
     elif choice == '2':
-        print ("")
+        tracks = Functions.filtra_genere(DisplayChoices.genre_choice())
+        for t in tracks:
+            t = t.get('track')
+            list_track_names.append((t.get('track_name')))
+            list_track_id.append(t.get('track_id'))
+            list_artists.append((t.get('artist_name')))
+        lletres = Functions.search_lyrics(list_track_id)
+        Functions.print_lletres(lletres)
 
     elif choice == '3':
         tracks = Functions.filtra_pais(DisplayChoices.country_choice())
@@ -37,9 +44,9 @@ while choice != 'q':
         Functions.print_lletres(lletres)
 
     elif choice == 'q':
-        print("\nGracies!!! Fins a la proxima")
+        print("\nGràcies!!! Fins la propera :D")
         quit()
 
     else:
-        print("\nI didn't understand that choice.\n")
+        print("\nDeus haver entrat alguna cosa malament! Torna a provar-ho siusplau :)\n")
 print (list_track_id)
