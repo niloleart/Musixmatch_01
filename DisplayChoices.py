@@ -1,3 +1,4 @@
+# coding=utf-8
 from time import sleep
 import os
 
@@ -10,12 +11,13 @@ def display_title_bar():
     print("\t***  Benvingut al nostre programa          ***")
     print("\t***   <- Nil - Janna - Claudia ->          ***")
     print("\t**********************************************")
-    sleep(1.5)
+    print("\n\n")
     print("\n\t<---------------------------------------------------------------------->")
-    print("\t<---   Guardarem les lletres de les teves cansons preferides        --->")
-    print("\t<---               Tria el filtres que mes t'agradi                 --->")
+    print("\t<---   Guardarem les lletres de les teves cançons preferides        --->")
+    print("\t<---               Tria el filtre que més t'agradi                 --->")
     print("\t<---------------------------------------------------------------------->")
-
+    print ("\n\n")
+    print ("""\tRECORDA EMBOLCALLAR EL QUE ESCRIUS AMB " " """)
 
 def disp_choices():
     print("\n[1] Filter by LANGUAGE.")
@@ -29,10 +31,10 @@ def disp_choices():
 
 def language_choice():
     print("\nIntrodueix el codi corresponent per al teu filtre:")
-    print("CATAlA: ca")
-    print("CASTELLA: es")
-    print("ANGLES: en")
-    print("ITALIA: it")
+    print("CATAlÀ: ca")
+    print("CASTELLÀ: es")
+    print("ANGLÉS: en")
+    print("ITALIÀ: it\n")
     return input()
 
 
