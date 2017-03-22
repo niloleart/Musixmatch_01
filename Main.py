@@ -4,15 +4,15 @@ from collections import deque
 import DisplayChoices, Functions
 ### MAIN ###
 choice = ''
-list_track_id = deque([])
-list_artists = deque([])
-list_track_names = deque([])
+
 
 DisplayChoices.display_title_bar()
 
 while choice != 'q':
     choice = DisplayChoices.disp_choices()
-
+    list_track_id = deque([])
+    list_artists = deque([])
+    list_track_names = deque([])
     if choice == '1':
         tracks = Functions.filtra_llengua(DisplayChoices.language_choice())
         for t in tracks:
@@ -42,4 +42,4 @@ while choice != 'q':
 
     else:
         print("\nI didn't understand that choice.\n")
-
+print (list_track_id)
