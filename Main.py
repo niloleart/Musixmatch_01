@@ -52,4 +52,4 @@ while choice != 'q':
     else:
         print("\nDeus haver entrat alguna cosa malament! Torna a provar-ho siusplau :)\n")
     ElasticSearch.insert_es(list_artists, list_track_id, list_track_names, list_lyrics)
-    Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
+    #Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
