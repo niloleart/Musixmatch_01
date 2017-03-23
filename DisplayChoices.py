@@ -51,5 +51,10 @@ def country_choice():
     print("FINLÀNDIA: fi\t SUÈCIA: se\tNORUEGA: no\tRUSSIA: ru\tDINAMARCA: dk")
     return input()
 
+def add_es_choice():
+    print ("\nVols afegir aquestes dades a la nostra DB?")
+    print ("Y/N")
+    return input()
+
 
 

@@ -1,7 +1,8 @@
 import json
+import requests.packages.urllib3
 import requests
 from collections import deque
-
+requests.packages.urllib3.disable_warnings()
 api_key = "1f7a92f087232149093fe79f5ce0452b"
 
 
@@ -56,7 +57,6 @@ def filtra_genere(genere):
 
 
 def search_lyrics(id_list):
-    lyrics_list = deque([])
     for id_lyric in id_list:
         lyric = requests.get('https://api.musixmatch.com/ws/1.1/track.lyrics.get',
                              params={
@@ -69,13 +69,22 @@ def search_lyrics(id_list):
             cos = lletra.get('body')
             lletres = cos.get('lyrics')
             l = lletres.get('lyrics_body')
-            lyrics_list.append(l)
         except json.decoder.JSONDecoder:
             print ("Cannot Decode JSON")
-    return lyrics_list
+    return l
 
 
 def print_lletres(lletres):
     for ll in lletres:
         print(ll.encode('utf-8'))
         print ("\n\n")
+
+
+def print_whole(list_track_id, list_artists, list_track_names, list_lyrics):
+    for i in range(0, len(list_track_id), 1):
+        print ""
+        print ("TRACK ID: " + str(list_track_id[i]))
+        print ("ARTIST: " + list_artists[i])
+        print ("TRACK NAME: " + list_track_names[i])
+        print ("LLETRA: \n" + list_lyrics[i])
+        print ""
