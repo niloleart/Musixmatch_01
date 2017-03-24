@@ -1,9 +1,7 @@
 # coding=utf-8
-from time import sleep
 import os
 
 
-### FUNCTIONS ###
 def display_title_bar():
     os.system('clear')
     print("\t\t**********************************************")
@@ -18,14 +16,14 @@ def display_title_bar():
     print ("\n")
     print ("""\t\t\tRECORDA EMBOLCALLAR EL QUE ESCRIUS AMB " " """)
 
+
 def disp_choices():
     print("\n[1] Filtra per IDIOMA.")
     print("[2] Filtra per GÈNERE.")
     print("[3] Filtra per PAÍS.")
-    print("[q] Surt.")
+    print("[4] BUSCA.")
+    print("[5] Surt.")
     return input('Què vols fer?\n')
-
-    # Respond to the user's choice.
 
 
 def language_choice():
@@ -51,10 +49,19 @@ def country_choice():
     print("FINLÀNDIA: fi\t SUÈCIA: se\tNORUEGA: no\tRUSSIA: ru\tDINAMARCA: dk")
     return input()
 
+
 def add_es_choice():
     print ("\nVols afegir aquestes dades a la nostra DB?")
-    print ("Y/N")
+    print ("1 == Si")
+    print ("0 == No")
     return input()
 
+
+def disp_query_option():
+    print ("\nQuin terme vols buscar")
+    print("[1] ARTISTA")
+    print("[2] CANÇÓ")
+    print("[3] LLETRA")
+    print("[4] TRACK ID\n")
 
 
