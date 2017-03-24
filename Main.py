@@ -10,14 +10,14 @@ choice_add = ''
 es = Elasticsearch()
 
 DisplayChoices.display_title_bar()
-
+ids = 1
 while choice != 'q':
+    x = 0
     choice = DisplayChoices.disp_choices()
     list_track_id = deque([])
     list_artists = deque([])
     list_lyrics = deque([])
     list_track_names = deque([])
-    es = Elasticsearch()
     if choice == '1':
         tracks = Functions.filtra_llengua(DisplayChoices.language_choice())
         for t in tracks:
@@ -51,5 +51,9 @@ while choice != 'q':
 
     else:
         print("\nDeus haver entrat alguna cosa malament! Torna a provar-ho siusplau :)\n")
-    ElasticSearch.insert_es(list_artists, list_track_id, list_track_names, list_lyrics)
-    #Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
+
+    for x in range(0, len(list_artists), 1):
+        ElasticSearch.insert_es(es, ids, list_artists[x], list_track_id[x], list_track_names[x], list_lyrics[x])
+        ids += 1
+
+    Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
