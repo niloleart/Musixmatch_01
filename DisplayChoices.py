@@ -52,8 +52,8 @@ def country_choice():
 
 def add_es_choice():
     print ("\nVols afegir aquestes dades a la nostra DB?")
-    print ("1 == Si")
-    print ("0 == No")
+    print ("1 = Si")
+    print ("0 = No")
     return input()
 
 

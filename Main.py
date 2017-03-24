@@ -59,6 +59,7 @@ while choice != 5:
         if q_choice == 4:
             q_choice = input("Introdueix una ID\n")
             ElasticSearch.search_id(es, index, q_choice)
+
     elif choice == 5:
         print("\nGràcies!!! Fins la propera :D")
         quit()
