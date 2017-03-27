@@ -1,7 +1,8 @@
 import json
-
+import pprint
 from elasticsearch import Elasticsearch
 import requests
+import Functions
 
 
 def insert_es(elastic, ids, list_artist_name, list_track_id, list_track_name, list_lyrics):
@@ -11,36 +12,27 @@ def insert_es(elastic, ids, list_artist_name, list_track_id, list_track_name, li
         'track-name': list_track_name,
         'lyrics': list_lyrics,
     })
-
-    if res['created']:
-        print ("S'ha afegit correctament a la base de dades")
-    else:
-        print ("Sembla que hi ha hagut un problema!\Torna a provar-ho.")
+#    if res['created'] or res['result'] == 'updated':
+#        print ("S'ha afegit correctament a la base de dades")
+#    else:
+#        print ("Sembla que hi ha hagut un problema!\nTorna a provar-ho.")
 
 
 def search_artist(elastic, index, artista):
     res = elastic.search(index=index, doc_type="lyrics", body={"query": {"match": {"artist": artista}}})
-    print("%d documents found" % res['hits']['total'])
-    for doc in res['hits']['hits']:
-        print("%s) %s" % (doc['_id'], doc['_source']))
+    Functions.print_search(res)
 
 
 def search_id(elastic, index, ids):
     res = elastic.search(index=index, doc_type="lyrics", body={"query": {"match": {"track-id": ids}}})
-    print("%d documents found" % res['hits']['total'])
-    for doc in res['hits']['hits']:
-        print("%s) %s" % (doc['_id'], doc['_source']))
+    Functions.print_search(res)
 
 
 def search_track(elastic, index, track):
     res = elastic.search(index=index, doc_type="lyrics", body={"query": {"match": {"track-name": track}}})
-    print("%d documents found" % res['hits']['total'])
-    for doc in res['hits']['hits']:
-        print("%s) %s" % (doc['_id'], doc['_source']))
+    Functions.print_search(res)
 
 
 def search_lyrics(elastic, index, lyrics):
     res = elastic.search(index=index, doc_type="lyrics", body={"query": {"match": {"lyrics": lyrics}}})
-    print("%d documents found" % res['hits']['total'])
-    for doc in res['hits']['hits']:
-        print("%s) %s" % (doc['_id'], doc['_source']))
+    Functions.print_search(res)

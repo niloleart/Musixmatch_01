@@ -88,3 +88,13 @@ def print_whole(list_track_id, list_artists, list_track_names, list_lyrics):
         print ("TRACK NAME: " + list_track_names[i])
         print ("LLETRA: \n" + list_lyrics[i])
         print ""
+
+
+def print_search(res_es):
+    print("%d document trobat!" % res_es['hits']['total'])
+    for doc in res_es['hits']['hits']:
+        print ("\nTrack ID: %(track-id)s" % doc['_source'])
+        print ("Artista: %(artist)s" % doc['_source'])
+        print ("Track Name: %(track-name)s" % doc['_source'])
+        print("Lletra: %(lyrics)s" % doc['_source'])
+        print ("")

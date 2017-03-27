@@ -14,7 +14,7 @@ def display_title_bar():
     print("\t<---               Tria el filtre que més t'agradi                  --->")
     print("\t<---------------------------------------------------------------------->")
     print ("\n")
-    print ("""\t\t\tRECORDA EMBOLCALLAR EL QUE ESCRIUS AMB " " """)
+    print ("""\t\t\tRECORDA EMBOLCALLAR ELS 'STRINGS' QUE ESCRIUS AMB " " """)
 
 
 def disp_choices():
@@ -63,5 +63,6 @@ def disp_query_option():
     print("[2] CANÇÓ")
     print("[3] LLETRA")
     print("[4] TRACK ID\n")
+    return input()
 
 

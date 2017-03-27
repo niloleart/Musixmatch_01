@@ -4,7 +4,6 @@ from elasticsearch import Elasticsearch
 import DisplayChoices
 import Functions
 import ElasticSearch
-### MAIN ###
 choice = ''
 es = Elasticsearch()
 index = 'musix'
@@ -68,6 +67,8 @@ while choice != 5:
         aux = 1
         print("\nDeus haver entrat alguna cosa malament! Torna a provar-ho siusplau :)\n")
 
+    Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
+
     if choice != 4 and aux == 0:
         choice_add_es = DisplayChoices.add_es_choice()
         if choice_add_es == 1:
@@ -77,4 +78,3 @@ while choice != 5:
         else:
             print ("No afegirem res doncs!")
 
-    #Functions.print_whole(list_track_id, list_artists, list_track_names, list_lyrics)
